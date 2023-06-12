@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -13,13 +12,19 @@
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="css/adminUserListStyle.css" rel="stylesheet">
+    <style>
+        .online {
+            color: green;
+        }
 
+        .offline {
+            color: red;
+        }
+    </style>
 </head>
 
 <body id="page-top">
@@ -202,84 +207,76 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                    <!-- Content Row -->
-                    <div class="row justify-content-center">
-
-                        <!-- Content Column -->
-                        <div class="col-lg-6">
-                            
-                            <!-- Page Heading -->
-                            <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                                <h1 class="h3 mb-0 text-gray-800">Edit User</h1>
-                            </div>
-
-                            <!-- Form -->
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">User Form</h6>
-                                </div>
-                                <div class="card-body">
-                                    <form>
-                                        <div class="form-group">
-                                            <label for="name">Name</label>
-                                            <input type="text" class="form-control" id="name" placeholder="Enter your name">
-                                        </div>
-                                        <div class="form-row">
-                                            <div class="form-group col-md-6">
-                                                <label for="ic">IC Number</label>
-                                                <input type="text" class="form-control" id="ic" placeholder="Enter your IC number">
-                                            </div>
-                                            <div class="form-group col-md-6">
-                                                <label for="phone">Phone Number</label>
-                                                <input type="text" class="form-control" id="phone" placeholder="Enter your phone number">
-                                            </div>
-                                        </div>
-                                        <div class="form-row">
-                                            <div class="form-group col-md-6">
-                                                <label for="honorary">Honorary Type</label>
-                                                <select class="form-control" id="honorary">
-                                                    <option value="1">Mr./Mrs.</option>
-                                                    <option value="2">Dr.</option>
-                                                    <option value="3">Assoc. Prof</option>
-                                                    <option value="4">Prof.</option>
-                                                    <option value="5">Prof. Madya</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group col-md-6">
-                                                <label for="working-date">Working Date</label>
-                                                <input type="date" class="form-control" id="working-date">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="working-as">Working As</label>
-                                            <select class="form-control" id="working-as">
-                                                <option value="1">Lecturer</option>
-                                                <option value="2">Senior Lecturer</option>
-                                                <option value="3">Researcher</option>
-                                                <option value="4">Senior Researcher</option>
-                                                <option value="5">Part Timer</option>
-                                                <option value="6">Clerk/Administration</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="education">Education History</label>
-                                            <textarea class="form-control" id="education" rows="3" placeholder="Enter your education history"></textarea>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="address">Address</label>
-                                            <textarea class="form-control" id="address" rows="5" placeholder="Enter your address"></textarea>
-                                        </div>
-                                        <div class="text-right">
-                                            <a href="mainAdmin.html" class="btn btn-primary btn-sm">Cancel</a>
-                                            <a href="mainAdmin.html" class="btn btn-primary btn-sm">Edit</a>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-
-                        </div>
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                                <h1 class="h3 mb-0 text-gray-800">User List</h1>
+                                <a href="addUser.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Add New User</a>
                     </div>
 
+                    <!-- User List -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">List of Users</h6>
+                        </div>
+
+                                <!-- Topbar Search -->
+                                <br><form
+                                    class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                                            aria-label="Search" aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">
+                                                <i class="fas fa-search fa-sm"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+
+                                
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Name</th>
+                                            <th>Session</th>
+                                            <th>Status</th>
+                                            <th>Modifier</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- Include the fetchDataAdmin.php file to fetch the data -->
+                                        <?php include_once "fetchDataAdmin.php"; ?>
+                                        <!-- Iterate over the fetched data and display it in the table -->
+                                        <?php
+                                        if ($result->num_rows > 0) {
+                                            while ($row = $result->fetch_assoc()) {
+                                                // Set the font color based on the status
+                                                $statusColor = ($row['status'] == "Online") ? "green" : "red";
+                                                ?>
+                                                <tr>
+                                                    <td><?php echo $row['id']; ?></td>
+                                                    <td><?php echo $row['name']; ?></td>
+                                                    <td><?php echo $row['session']; ?></td>
+                                                    <td style="color: <?php echo $statusColor; ?>"><?php echo $row['status']; ?></td>
+                                                    <td>
+                                                        <a href="editUser.php" class="btn btn-primary btn-sm">Edit</a>
+                                                        <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                                                        <a href="editUser.php" class="btn btn-info btn-sm">View</a>
+                                                    </td>
+                                                </tr>
+                                                
+                                                <?php
+                                            }
+                                        }
+                                        ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <!-- /.container-fluid -->
 
@@ -287,14 +284,7 @@
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Fakulti Komputeran Universiti Malaysia Pahang 2023 </span>
-                    </div>
-                </div>
-            </footer>
-            <!-- End of Footer -->
+            <!-- Footer content here -->
 
         </div>
         <!-- End of Content Wrapper -->
@@ -303,39 +293,7 @@
     <!-- End of Page Wrapper -->
 
     <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="index.html">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Bootstrap core JavaScript-->
-    <script src="js/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src="js/jquery.easing.min.js"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="js/adminUserList.js"></script>
+    <!-- Scroll to top button content here -->
 
 </body>
 

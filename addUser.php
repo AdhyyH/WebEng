@@ -206,67 +206,80 @@
                     <div class="row justify-content-center">
 
                         <!-- Content Column -->
-                        <div class="col-lg-8">
-
+                        <div class="col-lg-6">
+                            
                             <!-- Page Heading -->
                             <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                                <h1 class="h3 mb-0 text-gray-800">User List</h1>
-                                <a href="addUser.html" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Add New User</a>
+                                <h1 class="h3 mb-0 text-gray-800">Add User</h1>
                             </div>
 
-                            <!-- Table -->
+                            <!-- Form -->
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">List of Users</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">User Form</h6>
                                 </div>
-                                
-                                <!-- Topbar Search -->
-                                <form
-                                    class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                                            aria-label="Search" aria-describedby="basic-addon2">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-primary" type="button">
-                                                <i class="fas fa-search fa-sm"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-
                                 <div class="card-body">
-                                    <div class="table-responsive">
-                                        <table class="table table-bordered table-striped" id="userTable" width="100%" cellspacing="0">
-                                            <thead>
-                                                <tr>
-                                                    <th>ID</th>
-                                                    <th>Name</th>
-                                                    <th>Last Session</th>
-                                                    <th>Status</th>
-                                                    <th>Modifier</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>MB20063</td>
-                                                    <td>Abdul Ghani</td>
-                                                    <td>20/12/2022</td>
-                                                    <td>Offline</td>
-                                                    <td>
-                                                        <a href="editUser.html" class="btn btn-primary btn-sm">Edit</a>
-                                                        <a href="#" class="btn btn-danger btn-sm">Delete</a>
-                                                        <a href="editUser.html" class="btn btn-info btn-sm">View</a>
-                                                    </td>
-                                                </tr>
-                                                <!-- Add more rows for other users as needed -->
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="name">Name</label>
+                                            <input type="text" class="form-control" id="name" placeholder="Enter your name">
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                <label for="ic">IC Number</label>
+                                                <input type="text" class="form-control" id="ic" placeholder="Enter your IC number">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="phone">Phone Number</label>
+                                                <input type="text" class="form-control" id="phone" placeholder="Enter your phone number">
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                <label for="honorary">Honorary Type</label>
+                                                <select class="form-control" id="honorary">
+                                                    <option value="1">Mr./Mrs.</option>
+                                                    <option value="2">Dr.</option>
+                                                    <option value="3">Assoc. Prof</option>
+                                                    <option value="4">Prof.</option>
+                                                    <option value="5">Prof. Madya</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="working-date">Working Date</label>
+                                                <input type="date" class="form-control" id="working-date">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="working-as">Working As</label>
+                                            <select class="form-control" id="working-as">
+                                                <option value="1">Lecturer</option>
+                                                <option value="2">Senior Lecturer</option>
+                                                <option value="3">Researcher</option>
+                                                <option value="4">Senior Researcher</option>
+                                                <option value="5">Part Timer</option>
+                                                <option value="6">Administration</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="education">Education History</label>
+                                            <textarea class="form-control" id="education" rows="3" placeholder="Enter your education history"></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="address">Address</label>
+                                            <textarea class="form-control" id="address" rows="5" placeholder="Enter your address"></textarea>
+                                        </div>
+                                        <div class="text-right">
+                                            <a href="mainAdmin.html" class="btn btn-primary btn-sm">Cancel</a>
+                                            <a href="mainAdmin.html" class="btn btn-primary btn-sm">Add</a>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
 
                         </div>
                     </div>
+
                 </div>
                 <!-- /.container-fluid -->
 
@@ -308,7 +321,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="index.php">Logout</a>
+                    <a class="btn btn-primary" href="index.html">Logout</a>
                 </div>
             </div>
         </div>

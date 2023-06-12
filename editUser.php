@@ -210,7 +210,7 @@
                             
                             <!-- Page Heading -->
                             <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                                <h1 class="h3 mb-0 text-gray-800">Add User</h1>
+                                <h1 class="h3 mb-0 text-gray-800">Edit User</h1>
                             </div>
 
                             <!-- Form -->
@@ -258,7 +258,7 @@
                                                 <option value="3">Researcher</option>
                                                 <option value="4">Senior Researcher</option>
                                                 <option value="5">Part Timer</option>
-                                                <option value="6">Clerk/Administration</option>
+                                                <option value="6">Administration</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
@@ -271,7 +271,7 @@
                                         </div>
                                         <div class="text-right">
                                             <a href="mainAdmin.html" class="btn btn-primary btn-sm">Cancel</a>
-                                            <a href="mainAdmin.html" class="btn btn-primary btn-sm">Add</a>
+                                            <a href="mainAdmin.html" class="btn btn-primary btn-sm">Edit</a>
                                         </div>
                                     </form>
                                 </div>
@@ -336,6 +336,7 @@
 
     <!-- Custom scripts for all pages-->
     <script src="js/adminUserList.js"></script>
+
 </body>
 
 </html>
