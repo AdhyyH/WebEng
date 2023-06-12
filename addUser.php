@@ -219,31 +219,31 @@
                                     <h6 class="m-0 font-weight-bold text-primary">User Form</h6>
                                 </div>
                                 <div class="card-body">
-                                    <form action="addUserData.php" method="GET">
+                                    <form action="addUserData.php" method="POST">
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
                                                 <label for="name">ID</label>
-                                                <input type="text" class="form-control" id="id" placeholder="Enter ID">
+                                                <input type="text" class="form-control" id="id" placeholder="Enter ID" required>
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label for="name">Name</label>
-                                                <input type="text" class="form-control" id="name" placeholder="Enter name">
+                                                <input type="text" class="form-control" id="name" placeholder="Enter name" required>
                                             </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
                                                 <label for="ic">IC Number</label>
-                                                <input type="text" class="form-control" id="ic" placeholder="Enter IC number">
+                                                <input type="text" class="form-control" id="ic" placeholder="Enter IC number" required>
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label for="phonenum">Phone Number</label>
-                                                <input type="text" class="form-control" id="phoneum" placeholder="Enter phone number">
+                                                <input type="text" class="form-control" id="phoneum" placeholder="Enter phone number" required>
                                             </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
                                                 <label for="honor">Honorary Type</label>
-                                                <select class="form-control" id="honor">
+                                                <select class="form-control" id="honor" required>
                                                     <option value="1">Mr./Mrs.</option>
                                                     <option value="2">Dr.</option>
                                                     <option value="3">Assoc. Prof</option>
@@ -253,7 +253,7 @@
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label for="work">Working As</label>
-                                                <select class="form-control" id="work">
+                                                <select class="form-control" id="work" required>
                                                     <option value="1">Lecturer</option>
                                                     <option value="2">Senior Lecturer</option>
                                                     <option value="3">Researcher</option>
@@ -264,7 +264,7 @@
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label for="status">Status</label>
-                                                <select class="form-control" id="status">
+                                                <select class="form-control" id="status" required>
                                                     <option value="1">Offline</option>
                                                     <option value="2">Online</option>
                                                 </select>
@@ -273,15 +273,15 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="eduhist">Education History</label>
-                                            <textarea class="form-control" id="eduhist" rows="3" placeholder="Enter education history"></textarea>
+                                            <textarea class="form-control" id="eduhist" rows="3" placeholder="Enter education history" required></textarea>
                                         </div>
                                         <div class="form-group">
                                             <label for="address">Address</label>
-                                            <textarea class="form-control" id="address" rows="5" placeholder="Enter address"></textarea>
+                                            <textarea class="form-control" id="address" rows="5" placeholder="Enter address" required></textarea>
                                         </div>
                                         <div class="text-right">
                                             <a href="mainAdmin.php" class="btn btn-primary btn-sm">Cancel</a>
-                                            <a href="addUserData.php" class="btn btn-primary btn-sm">Add</a>
+                                            <input type="submit" value="Submit">
                                         </div>
                                     </form>
                                 </div>
