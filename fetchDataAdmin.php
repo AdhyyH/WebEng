@@ -14,7 +14,7 @@ if ($conn->connect_error) {
 }
 
 // Fetch the data from the database
-$sql = "SELECT id, name, session, status FROM userinfo";
+$sql = "SELECT id, name, status FROM userinfo";
 $result = $conn->query($sql);
 
 // Close the database connection

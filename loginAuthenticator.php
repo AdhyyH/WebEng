@@ -33,8 +33,8 @@ function handleLoginAttempt($username, $password)
         // User exists, verify the password
         $user = $result->fetch_assoc();
         if ($password === $user['loginPass']) {
-            // Password is correct, redirect to mainAdmin.html
-            header("Location: mainAdmin.html");
+            // Password is correct, redirect to mainAdmin.php
+            header("Location: mainAdmin.php");
             exit();
         }
     }

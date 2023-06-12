@@ -31,7 +31,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="mainAdmin.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="mainAdmin.php">
                 <div class="sidebar-brand-text mx-3"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-book" viewBox="0 0 16 16">
                     <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
                   </svg>&nbsp <br> FK-EduSearch <sup>Admin</sup></div>
@@ -108,7 +108,7 @@
 
             <!-- User List-->
             <li class="nav-item active">
-                <a class="nav-link" href="mainAdmin.html" >
+                <a class="nav-link" href="mainAdmin.php" >
                     <span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-people" viewBox="0 0 16 16">
                             <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8Zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022ZM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816ZM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0Zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z"/>
@@ -219,25 +219,31 @@
                                     <h6 class="m-0 font-weight-bold text-primary">User Form</h6>
                                 </div>
                                 <div class="card-body">
-                                    <form>
-                                        <div class="form-group">
-                                            <label for="name">Name</label>
-                                            <input type="text" class="form-control" id="name" placeholder="Enter your name">
+                                    <form action="addUserData.php" method="GET">
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                <label for="name">ID</label>
+                                                <input type="text" class="form-control" id="id" placeholder="Enter ID">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="name">Name</label>
+                                                <input type="text" class="form-control" id="name" placeholder="Enter name">
+                                            </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
                                                 <label for="ic">IC Number</label>
-                                                <input type="text" class="form-control" id="ic" placeholder="Enter your IC number">
+                                                <input type="text" class="form-control" id="ic" placeholder="Enter IC number">
                                             </div>
                                             <div class="form-group col-md-6">
-                                                <label for="phone">Phone Number</label>
-                                                <input type="text" class="form-control" id="phone" placeholder="Enter your phone number">
+                                                <label for="phonenum">Phone Number</label>
+                                                <input type="text" class="form-control" id="phoneum" placeholder="Enter phone number">
                                             </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
-                                                <label for="honorary">Honorary Type</label>
-                                                <select class="form-control" id="honorary">
+                                                <label for="honor">Honorary Type</label>
+                                                <select class="form-control" id="honor">
                                                     <option value="1">Mr./Mrs.</option>
                                                     <option value="2">Dr.</option>
                                                     <option value="3">Assoc. Prof</option>
@@ -246,32 +252,36 @@
                                                 </select>
                                             </div>
                                             <div class="form-group col-md-6">
-                                                <label for="working-date">Working Date</label>
-                                                <input type="date" class="form-control" id="working-date">
+                                                <label for="work">Working As</label>
+                                                <select class="form-control" id="work">
+                                                    <option value="1">Lecturer</option>
+                                                    <option value="2">Senior Lecturer</option>
+                                                    <option value="3">Researcher</option>
+                                                    <option value="4">Senior Researcher</option>
+                                                    <option value="5">Part Timer</option>
+                                                    <option value="6">Administration</option>
+                                                </select>
                                             </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="status">Status</label>
+                                                <select class="form-control" id="status">
+                                                    <option value="1">Offline</option>
+                                                    <option value="2">Online</option>
+                                                </select>
+                                            </div>
+                                            
                                         </div>
                                         <div class="form-group">
-                                            <label for="working-as">Working As</label>
-                                            <select class="form-control" id="working-as">
-                                                <option value="1">Lecturer</option>
-                                                <option value="2">Senior Lecturer</option>
-                                                <option value="3">Researcher</option>
-                                                <option value="4">Senior Researcher</option>
-                                                <option value="5">Part Timer</option>
-                                                <option value="6">Administration</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="education">Education History</label>
-                                            <textarea class="form-control" id="education" rows="3" placeholder="Enter your education history"></textarea>
+                                            <label for="eduhist">Education History</label>
+                                            <textarea class="form-control" id="eduhist" rows="3" placeholder="Enter education history"></textarea>
                                         </div>
                                         <div class="form-group">
                                             <label for="address">Address</label>
-                                            <textarea class="form-control" id="address" rows="5" placeholder="Enter your address"></textarea>
+                                            <textarea class="form-control" id="address" rows="5" placeholder="Enter address"></textarea>
                                         </div>
                                         <div class="text-right">
-                                            <a href="mainAdmin.html" class="btn btn-primary btn-sm">Cancel</a>
-                                            <a href="mainAdmin.html" class="btn btn-primary btn-sm">Add</a>
+                                            <a href="mainAdmin.php" class="btn btn-primary btn-sm">Cancel</a>
+                                            <a href="addUserData.php" class="btn btn-primary btn-sm">Add</a>
                                         </div>
                                     </form>
                                 </div>
@@ -321,7 +331,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="index.html">Logout</a>
+                    <a class="btn btn-primary" href="index.php">Logout</a>
                 </div>
             </div>
         </div>
