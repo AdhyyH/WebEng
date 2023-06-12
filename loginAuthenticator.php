@@ -1,51 +1,43 @@
 <?php
-// Database credentials
-$host = 'localhost';
-$db   = 'webengProject';
-$user = 'root';
-$pass = '';
 
-// Establishing a database connection
-$conn = new mysqli($host, $user, $pass, $db);
-if ($conn->connect_error) {
-    die('Connection failed: ' . $conn->connect_error);
-}
+    // Establish the database connection
+    $link = mysqli_connect("localhost", "root", "", "webengproject");
 
-// Function to handle login attempts
-function handleLoginAttempt($username, $password)
-{
-    global $conn;
-
-    // Prepare a SQL statement to retrieve user data from the database based on the provided username
-    $stmt = $conn->prepare("SELECT * FROM login WHERE loginID = ? AND loginPass = ?");
-    $stmt->bind_param("ss", $username, $password);
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-    if ($result->num_rows === 1) {
-        // User exists, verify the password
-        $user = $result->fetch_assoc();
-        if (password_verify($password, $user['password'])) {
-            // Password is correct, redirect to mainAdmin.html
-            header("Location: mainAdmin.html");
-            exit();
-        }
+    // Check the connection
+    if (mysqli_connect_errno()) {
+        die("Connection failed: " . mysqli_connect_error());
     }
 
-    // Invalid username or password
-    header("Location: index.php?error=true");
-    exit();
-}
-
-// Check if the form is submitted
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = $_POST['username'];
+    // Retrieve the entered username and password from the login form
+    $username = $_POST['user_name'];
     $password = $_POST['password'];
 
-    // Call the function to handle the login attempt
-    handleLoginAttempt($username, $password);
-}
+    // Prepare and execute a SQL query to check the user's credentials
+    $stmt = $link->prepare("SELECT id, name FROM user_login WHERE user_name = ? AND password = ?");
+    $stmt->bind_param("ss", $username, $password);
+    $stmt->execute();
+    $stmt->store_result();
 
-// Close the database connection
-$conn->close();
+    // Check if the query returned any rows (i.e., the username and password matched)
+    if ($stmt->num_rows > 0) {
+        // Start the session and store the user's ID and name
+        session_start();
+        $stmt->bind_result($id, $name);
+        $stmt->fetch();
+        $_SESSION['id'] = $id;
+        $_SESSION['name'] = $name;
+
+        // Redirect the user to the welcome page
+        header("Location: welcomeAdmin.html");
+        exit();
+    } else {
+        // Invalid username and password
+        $error = "Invalid username and password";
+        header("Location: index.php?error=" . urlencode($error));
+    }
+
+    // Close the database connection
+    $stmt->close();
+    $link->close();
 ?>
+
