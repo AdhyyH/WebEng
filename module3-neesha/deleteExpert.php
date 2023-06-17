@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "fkedusearch";
+$dbname = "webengproject";
 
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] === "POST") {

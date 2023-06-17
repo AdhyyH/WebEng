@@ -6,7 +6,7 @@
         $qualification = isset($_POST["qualification"]) ? $_POST["qualification"] : "";
 
         // Establish database connection
-        $link = mysqli_connect("localhost", "root", "", "fkedusearch");
+        $link = mysqli_connect("localhost", "root", "", "webengproject");
 
         // Check the connection
         if (mysqli_connect_errno()) {

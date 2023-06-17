@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "fkedusearch";
+$dbname = "webengproject";
 
 // Create a connection
 $conn = new mysqli($servername, $username, $password, $dbname);
