@@ -47,7 +47,7 @@
     ?>
     <script>
         // Redirect to welcomeUser.php after displaying the popup
-        window.location.href = "addUser.php";
+        window.location.href = "addUserAdmin.php";
     </script>
 </body>
 </html>

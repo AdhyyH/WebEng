@@ -219,7 +219,7 @@
                                     <h6 class="m-0 font-weight-bold text-primary">User Form</h6>
                                 </div>
                                 <div class="card-body">
-                                    <form action="addUserData.php" method="POST">
+                                    <form action="addUserDataAdmin.php" method="POST">
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
                                                 <label for="name">ID</label>
@@ -243,33 +243,16 @@
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
                                                 <label for="honor">Honorary Type</label>
-                                                <select class="form-control" id="honor" name="honor" required>
-                                                    <option value="1">Mr./Mrs.</option>
-                                                    <option value="2">Dr.</option>
-                                                    <option value="3">Assoc. Prof</option>
-                                                    <option value="4">Prof.</option>
-                                                    <option value="5">Prof. Madya</option>
-                                                </select>
+                                                <input type="text" class="form-control" id="honor" placeholder="Enter honorary type" name="honor" required>
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label for="work">Working As</label>
-                                                <select class="form-control" id="work" name="work" required>
-                                                    <option value="1">Lecturer</option>
-                                                    <option value="2">Senior Lecturer</option>
-                                                    <option value="3">Researcher</option>
-                                                    <option value="4">Senior Researcher</option>
-                                                    <option value="5">Part Timer</option>
-                                                    <option value="6">Administration</option>
-                                                </select>
+                                                <input type="text" class="form-control" id="work" placeholder="Enter work" name="work" required>
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label for="status">Status</label>
-                                                <select class="form-control" id="status" name="status" required>
-                                                    <option value="1">Offline</option>
-                                                    <option value="2">Online</option>
-                                                </select>
+                                                <input type="text" class="form-control" id="status" placeholder="Enter status" name="status" required>
                                             </div>
-                                            
                                         </div>
                                         <div class="form-group">
                                             <label for="eduhist">Education History</label>
