@@ -1,9 +1,9 @@
 <?php
 // Database configuration
-$host = "127.0.0.1";
+$host = "localhost";
 $username = "root";
 $password = "";
-$database = "web_eng";
+$database = "webengproject";
 
 // Create a connection
 $conn = new mysqli($host, $username, $password, $database);

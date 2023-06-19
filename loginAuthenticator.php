@@ -1,7 +1,7 @@
 <?php
 // Database credentials
 $host = 'localhost';
-$db   = 'webengProject';
+$db = 'webengProject';
 $user = 'root';
 $pass = '';
 
@@ -33,9 +33,18 @@ function handleLoginAttempt($username, $password)
         // User exists, verify the password
         $user = $result->fetch_assoc();
         if ($password === $user['loginPass']) {
-            // Password is correct, redirect to mainAdmin.php
-            header("Location: mainAdmin.php");
-            exit();
+            // Password is correct, redirect to the appropriate page based on the ID prefix
+            $idPrefix = substr($user['loginID'], 0, 1);
+            if ($idPrefix === 'L') {
+                header("Location: complaintLect-list-front.php");
+                exit();
+            } elseif ($idPrefix === 'M') {
+                header("Location: ManageAccount.php");
+                exit();
+            } elseif ($idPrefix === 'S') {
+                header("Location: MainAdmin.php");
+                exit();
+            }
         }
     }
 

@@ -19,9 +19,9 @@ $commentsQuery = "SELECT feedback.description, feedback.datetime
 $commentsResult = mysqli_query($conn, $commentsQuery);
 
 // Retrieve answers
-$answersQuery = "SELECT answer.description, answer.date
-                  FROM answer
-                  WHERE answer.discussionID = '$discussionID'";
+$answersQuery = "SELECT answerr.description, answerr.date
+                  FROM answerr
+                  WHERE answerr.discussionID = '$discussionID'";
 $answersResult = mysqli_query($conn, $answersQuery);
 
 // Save comment to feedback table

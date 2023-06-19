@@ -32,7 +32,7 @@
             $mysql = mysqli_connect("localhost", "root", "") or die(mysqli_connect_error());
 
             // Select the database named "fkedusearch"
-            mysqli_select_db($mysql, "fkedusearch") or die(mysqli_error($mysql));
+            mysqli_select_db($mysql, "webengproject") or die(mysqli_error($mysql));
 
             // Query to fetch total complaints by type based on selected dateType
             $query = "SELECT type, COUNT(*) as total FROM complaints WHERE DATE(created_at) >= CURDATE() - INTERVAL 1 $dateType GROUP BY type";
@@ -87,7 +87,7 @@
                             $mysql = mysqli_connect("localhost", "root", "") or die(mysqli_connect_error());
 
                             // Select the database named "fkedusearch"
-                            mysqli_select_db($mysql, "fkedusearch") or die(mysqli_error($mysql));
+                            mysqli_select_db($mysql, "webengproject") or die(mysqli_error($mysql));
 
                             $query = "SELECT c.id AS complaintID, a.id AS answerID, q.id AS questionID, c.type, c.description, c.status, c.created_at
                             FROM complaints c, answers a, questions q, users u 

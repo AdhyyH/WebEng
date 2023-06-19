@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 
     // Prepare the delete statement
-    $stmt = $conn->prepare("DELETE FROM expert WHERE ExpertID = ?");
+    $stmt = $conn->prepare("DELETE FROM expertt WHERE ExpertID = ?");
     $stmt->bind_param("s", $ExpertId);
 
     // Execute the delete statement

@@ -6,11 +6,11 @@ $userID = $_GET['userID'];
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $topic = $_POST['taskName'];
     $content = $_POST['taskDescription'];
-    $categoryID = $_POST['taskStatus'];
+    $categoriesID = $_POST['taskStatus'];
     $date = date('Y-m-d H:i:s', strtotime('now'));
 
     // Insert the values into the discussion table
-    $sql = "INSERT INTO discussion (userID, categoryID, content, topic, date) VALUES ('$userID', '$categoryID', '$content', '$topic', '$date')";
+    $sql = "INSERT INTO discussion (userID, categoriesID, content, topic, date) VALUES ('$userID', '$categoriesID', '$content', '$topic', '$date')";
     if (mysqli_query($conn, $sql)) {
         echo "Discussion created successfully.";
         header("Location: DiscussionMain.php?userID=$userID");
@@ -132,9 +132,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                 <select class="form-select" name="taskStatus" id="taskStatus" required>
                                                     <option selected disabled>Select Category</option>
                                                     <?php
-                                                    $categoryQuery = mysqli_query($conn, "SELECT * FROM category");
+                                                    $categoryQuery = mysqli_query($conn, "SELECT * FROM categories");
                                                     while ($row = mysqli_fetch_assoc($categoryQuery)) {
-                                                        echo '<option value="' . $row['categoryID'] . '">' . $row['categoryName'] . '</option>';
+                                                        echo '<option value="' . $row['categoriesID'] . '">' . $row['categoriesName'] . '</option>';
                                                     }
                                                     ?>
                                                 </select>

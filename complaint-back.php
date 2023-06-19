@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $description = $_POST['description'];
 
         // Connect to the database
-        $mysql = mysqli_connect("localhost", "root", "", "fkedusearch") or die(mysqli_connect_error());
+        $mysql = mysqli_connect("localhost", "root", "", "webengproject") or die(mysqli_connect_error());
 
         $answer_id = mysqli_real_escape_string($mysql, $answer_id);
         $type = mysqli_real_escape_string($mysql, $type);

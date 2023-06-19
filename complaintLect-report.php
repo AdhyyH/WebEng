@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["keyword"])) {
 
     // Modify the following code based on your database structure and query requirements
     $mysql = mysqli_connect("localhost", "root", "") or die(mysqli_connect_error());
-    mysqli_select_db($mysql, "fkedusearch") or die(mysqli_error($mysql));
+    mysqli_select_db($mysql, "webengproject") or die(mysqli_error($mysql));
 
     // Query based on complaint type or status
     $sql = "SELECT * FROM complaints WHERE type LIKE '%$keyword%' OR status LIKE '%$keyword%'";
@@ -95,7 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["keyword"])) {
     // Fetch complaints by type data from PHP
     <?php
     $mysql = mysqli_connect("localhost", "root", "") or die(mysqli_connect_error());
-    mysqli_select_db($mysql, "fkedusearch") or die(mysqli_error($mysql));
+    mysqli_select_db($mysql, "webengproject") or die(mysqli_error($mysql));
 
     $complaintsByTypeData = array();
     $sql = "SELECT type, COUNT(*) AS count FROM complaints GROUP BY type";
@@ -153,7 +153,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["keyword"])) {
     // Fetch complaints by status data from PHP
     <?php
     $mysql = mysqli_connect("localhost", "root", "") or die(mysqli_connect_error());
-    mysqli_select_db($mysql, "fkedusearch") or die(mysqli_error($mysql));
+    mysqli_select_db($mysql, "webengproject") or die(mysqli_error($mysql));
 
     $complaintsByStatusData = array();
     $sql = "SELECT status, COUNT(*) AS count FROM complaints GROUP BY status";

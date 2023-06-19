@@ -2,7 +2,7 @@
      <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Mini Project Web Engineering</span>
+                    <span>Copyright &copy; Fakulti Komputeran Universiti Malaysia Pahang 2023 </span>
                     </div>
                 </div>
             </footer>

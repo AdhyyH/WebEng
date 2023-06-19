@@ -40,45 +40,10 @@
             <!-- Divider: The line above dashboard-->
             <hr class="sidebar-divider my-0">
 
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="index.html">
-                    <i class="fa-solid fa-house" style="color: white"></i>
-                    <span>Home</span></a>
-            </li>
-
-            <!-- Divider: The line above dashboard -->
-            <hr class="sidebar-divider">
-
             <!-- Heading -->
             <div class="sidebar-heading">
                 Menu
             </div>
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#">
-                    <i class="fa-solid fa-address-card" style="color: white"></i>
-                    <span>Manage Account</span>
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#">
-                    <i class="fa-solid fa-book" style="color:white"></i>
-                    <span>Discussion</span>
-                </a>
-
-            </li>
-
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="complaintLect-create.php">
-                    <i class="fa-solid fa-pen" style="color: white"></i>
-                    <span>Make Complaint</span>
-                </a>
-
-            </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">

@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         }
 
         // Prepare and execute the query to update the data
-        $stmt = $conn->prepare("UPDATE expert SET name=?, qualification=?, WHERE ExpertID=?");
+        $stmt = $conn->prepare("UPDATE expertt SET name=?, qualification=?, WHERE ExperttID=?");
         $stmt->bind_param("ssssssss", $name, $qualification);
         
         if ($stmt->execute()) {

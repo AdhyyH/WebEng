@@ -1,7 +1,7 @@
 <?php
 // Database credentials
 $host = 'localhost';
-$db   = 'webengProject';
+$db   = 'webengproject';
 $user = 'root';
 $pass = '';
 

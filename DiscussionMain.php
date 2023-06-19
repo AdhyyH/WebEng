@@ -1,19 +1,19 @@
 <?php
 include 'db_connection.php';
-$userID = $_GET['userID'];
+$userID = $_GET['userID'] ?? '';
 
 // Retrieve the search query
 $search = $_GET['search'] ?? '';
-$category = $_GET['category'] ?? '';
+$categories = $_GET['categories'] ?? '';
 $topic = $_GET['topic'] ?? '';
 $sort = $_GET['sort'] ?? '';
 
 // Prepare the SQL query with search and sort conditions
-$sql = "SELECT discussion.discussionID, discussion.userID, category.categoryName, discussion.content, discussion.status, discussion.date, discussion.topic
+$sql = "SELECT discussion.discussionID, discussion.userID, categories.categoriesName, discussion.content, discussion.status, discussion.date, discussion.topic
         FROM discussion
-        INNER JOIN category ON discussion.categoryID = category.categoryID
+        INNER JOIN categories ON discussion.categoriesID = categories.categoriesID
         WHERE discussion.content LIKE '%$search%'
-        AND category.categoryName LIKE '%$category%'
+        AND categories.categoriesName LIKE '%$categories%'
         AND discussion.topic LIKE '%$topic%'";
 
 // Add the ORDER BY clause based on the sort parameter
@@ -81,15 +81,15 @@ $result = $conn->query($sql);
                         <!-- Add New and Sort buttons -->
                         <div class="d-flex justify-content-between">
                             <div>
-                                <button type="button" class="btn btn-primary" onclick="redirectToDiscussionCreate(<?php echo $userID; ?>)">Add New</button>
-                                <button type="button" class="btn btn-secondary" onclick="redirectToDiscussionInsight(<?php echo $userID; ?>)">Post Insight</button>
+                                <button type="button" class="btn btn-primary" onclick="redirectToDiscussionCreate('<?php echo $userID; ?>')">Add New</button>
+                                <button type="button" class="btn btn-secondary" onclick="redirectToDiscussionInsight('<?php echo $userID; ?>')">Post Insight</button>
                             </div>
                             <div class="dropdown">
                                 <button class="btn btn-info dropdown-toggle" type="button" id="sortDropdown" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">Sort</button>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="sortDropdown">
-                                    <a class="dropdown-item" href="?search=<?php echo $search; ?>&category=<?php echo $category; ?>&topic=<?php echo $topic; ?>&sort=latest">Latest</a>
-                                    <a class="dropdown-item" href="?search=<?php echo $search; ?>&category=<?php echo $category; ?>&topic=<?php echo $topic; ?>&sort=earliest">Earliest</a>
+                                    <a class="dropdown-item" href="?search=<?php echo $search; ?>&categories=<?php echo $categories; ?>&topic=<?php echo $topic; ?>&sort=latest&userID=<?php echo $userID; ?>">Latest</a>
+                                    <a class="dropdown-item" href="?search=<?php echo $search; ?>&categories=<?php echo $categories; ?>&topic=<?php echo $topic; ?>&sort=earliest&userID=<?php echo $userID; ?>">Earliest</a>
                                 </div>
                             </div>
                         </div>
@@ -102,7 +102,7 @@ $result = $conn->query($sql);
                                     <input type="text" class="form-control" placeholder="Search" name="search" value="<?php echo $search; ?>">
                                 </div>
                                 <div class="col">
-                                    <input type="text" class="form-control" placeholder="Category" name="category" value="<?php echo $category; ?>">
+                                    <input type="text" class="form-control" placeholder="Category" name="category" value="<?php echo $categories; ?>">
                                 </div>
                                 <div class="col">
                                     <input type="text" class="form-control" placeholder="Topic" name="topic" value="<?php echo $topic; ?>">
@@ -121,7 +121,7 @@ $result = $conn->query($sql);
                         while ($row = $result->fetch_assoc()) {
                             $discussionID = $row['discussionID'];
                             $thisuserID = $row['userID'];
-                            $categoryName = $row['categoryName'];
+                            $categoriesName = $row['categoriesName'];
                             $content = $row['content'];
                             $status = $row['status'];
                             $date = $row['date'];
@@ -131,7 +131,7 @@ $result = $conn->query($sql);
                             echo '<div class="card shadow mb-4">
                                         <div class="card-header py-3 border-left-primary">
                                             <h4 class="title font-weight-bold text-primary">' . $topic . '</h4>
-                                            <div class="category">' . $categoryName . '</div>
+                                            <div class="category">' . $categoriesName . '</div>
                                         </div>
                                         <div class="card-body">
                                             <div class="discussion">
@@ -146,44 +146,37 @@ $result = $conn->query($sql);
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <button type="submit" class="btn btn-outline-primary" name="comment">
-                                        <a href="DiscussionComment.php?discussionID=' . $discussionID . '&userID=' . $userID . '">
-                                            <span style="font-weight: bold;">Comment</span>
-                                        </a>
-                                    </button>';
-                                    
+                                            
+                                            <button type="submit" class="btn btn-outline-primary" name="comment">
+                                                <a href="DiscussionComment.php?discussionID=' . $discussionID . '&userID=' . $userID . '">
+                                                    <span style="font-weight: bold;">Comment</span>
+                                                </a>
+                                            </button>';
+
                             // Add the condition to display the "Update" button
                             if ($thisuserID == $userID) {
                                 echo '<button type="submit" class="btn btn-outline-secondary" name="update">
                                             <a href="DiscussionUpdate.php?discussionID=' . $discussionID . '&userID=' . $userID . '">
-                                                <span style="font-weight: bold; color: grey;">Update</span>
+                                                <span style="font-weight: bold;">Update</span>
                                             </a>
                                         </button>';
                             }
                             
-                            echo '<br><br>';
+                            echo '</div>
+                                </div>';
                         }
                         ?>
 
                     </div>
-                    <!-- End of Inside Content -->
+                    <!-- /.container-fluid -->
                 </div>
-                <!-- /.container-fluid -->
+                <!-- End of Main Content -->
             </div>
-            <!-- End of Main Content -->
-
+            <!-- End of Content Wrapper -->
         </div>
-        <!-- End of Content Wrapper -->
+        <!-- End of Page Wrapper -->
     </div>
-    <!-- End of Page Wrapper -->
-
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
+    <!-- End of Wrapper -->
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
@@ -195,17 +188,16 @@ $result = $conn->query($sql);
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
 
-    <!-- Script to redirect to Discussion Create page -->
+    <!-- Additional scripts for this page -->
     <script>
         function redirectToDiscussionCreate(userID) {
-            window.location.href = 'DiscussionCreate.php?userID=' + userID;
+            window.location.href = "DiscussionCreate.php?userID=" + userID;
         }
 
         function redirectToDiscussionInsight(userID) {
-            window.location.href = 'DiscussionInsight.php?userID=' + userID;
+            window.location.href = "DiscussionInsight.php?userID=" + userID;
         }
     </script>
-
 </body>
 
 </html>

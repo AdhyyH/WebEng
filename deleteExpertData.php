@@ -13,7 +13,7 @@ if ($conn->connect_error) {
 }
 
 // Prepare and execute the query
-$stmt = $conn->prepare("SELECT * FROM expert");
+$stmt = $conn->prepare("SELECT * FROM expertt");
 $stmt->execute();
 
 // Get the result
@@ -25,7 +25,7 @@ if ($result->num_rows > 0) {
     // Fetch each row's information
     while ($row = $result->fetch_assoc()) {
         // Get the ID from the row
-        $id = $row['ExpertID'];
+        $id = $row['ExperttID'];
 
         // Add the ID to the options array
         $options[] = $id;
@@ -102,7 +102,7 @@ $conn->close();
 
                 // Connect to the database again to fetch the selected row's information
                 $conn = new mysqli($servername, $username, $password, $dbname);
-                $stmt = $conn->prepare("SELECT * FROM expert WHERE ExpertID = ?");
+                $stmt = $conn->prepare("SELECT * FROM expertt WHERE ExperttID = ?");
                 $stmt->bind_param("s", $selectedOption);
                 $stmt->execute();
                 $result = $stmt->get_result();
@@ -119,7 +119,7 @@ $conn->close();
                 
                     // Add the delete button and confirmation prompt
                     echo "<form method='POST' action='delete.php' onsubmit='return confirmDeletion();'>";
-                    echo "<input type='hidden' name='ExpertID' value='" . $row['ExpertID'] . "'>";
+                    echo "<input type='hidden' name='ExperttID' value='" . $row['ExperttID'] . "'>";
                     echo "<input type='submit' value='Delete'>";
                     echo "</form>";
                 } else {

@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mysql = mysqli_connect("localhost", "root", "") or die(mysqli_connect_error());
 
         // Select the database
-        mysqli_select_db($mysql, "fkedusearch") or die(mysqli_error($mysql));
+        mysqli_select_db($mysql, "webengproject") or die(mysqli_error($mysql));
 
         // Update the status in the database
         $query = "UPDATE complaints SET status = '$status' WHERE id = $complaintID";

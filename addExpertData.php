@@ -18,7 +18,7 @@
         $qualification = mysqli_real_escape_string($link, $qualification);        
 
         // Create the query string
-        $query = "INSERT INTO userinfo (name, qualification) VALUES ('$name', '$qualification')";
+        $query = "INSERT INTO expertt (name, qualification) VALUES ('$name', '$qualification')";
 
         // Run the query
         if (mysqli_query($link, $query)) {

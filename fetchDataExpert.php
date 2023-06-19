@@ -14,7 +14,7 @@ if ($conn->connect_error) {
 }
 
 // Fetch the data from the database
-$sql = "SELECT ExpertID, name, status FROM expert";
+$sql = "SELECT ExperttID, name, status FROM expertt";
 $result = $conn->query($sql);
 
 // Close the database connection

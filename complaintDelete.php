@@ -13,7 +13,7 @@ $status = $_POST['status'];
 $mysql = mysqli_connect("localhost", "root", "") or die(mysqli_connect_error());
 
 // Select the database named "fkedusearch"
-mysqli_select_db($mysql, "fkedusearch") or die(mysqli_error($mysql));
+mysqli_select_db($mysql, "webengproject") or die(mysqli_error($mysql));
 
 // Construct the delete query
 $deleteQuery = "DELETE FROM complaints WHERE id = '$complaintID'";
