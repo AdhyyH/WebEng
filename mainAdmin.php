@@ -349,8 +349,8 @@
                             <h6 class="m-0 font-weight-bold text-primary">Modifier</h6>
                         </div>
 
-                        <div class="modbody">
-                            <div class="modcontainer">
+                        <!-- <div class="modbody"> -->
+                            <!-- <div class="modcontainer"> -->
                                 <?php
                                 $servername = "localhost";
                                 $username = "root";
@@ -501,8 +501,8 @@
                                     }
                                 }
                                 ?>
-                            </div>
-                        </div>
+                            <!-- </div> -->
+                        <!-- </div> -->
                     </div>
 
                     <!-- Graph -->
